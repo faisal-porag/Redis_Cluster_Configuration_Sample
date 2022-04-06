@@ -1,1 +1,26 @@
 
+//REDIS CLUSTER CONFIGURATION SETUP PROCESS
+--------------------------------------------
+
+//STEP - 1 
+mkdir bitnami-clustering-redis
+
+//STEP - 2
+cd bitnami-clustering-redis/
+
+//STEP - 3 
+code docker-compose.yml  //(OPEN WITH VS CODE)
+
+//STEP - 4 
+download the docker-compose.yml file
+
+//STEP - 5
+docker-compose up --build
+
+
+//STEP - 6 
+docker-compose up
+
+
+//STEP - 7
+docker-compose down
