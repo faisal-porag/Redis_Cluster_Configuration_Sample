@@ -1,49 +1,60 @@
 version: '2'
 services:
   redis-node-0:
-    image: docker.io/bitnami/redis-cluster:6.2
+    image: docker.io/bitnami/redis-cluster:6.2.10
+    container_name: redis-cluster-0
     volumes:
       - redis-cluster_data-0:/bitnami/redis/data
     environment:
-      - 'REDIS_PASSWORD=SET_YOUR_PASSWORD'
+      - 'REDIS_PASSWORD=bitnami'
+      # - 'ALLOW_EMPTY_PASSWORD=yes'
       - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5'
 
   redis-node-1:
-    image: docker.io/bitnami/redis-cluster:6.2
+    image: docker.io/bitnami/redis-cluster:6.2.10
+    container_name: redis-cluster-1
     volumes:
       - redis-cluster_data-1:/bitnami/redis/data
     environment:
-      - 'REDIS_PASSWORD=SET_YOUR_PASSWORD'
+      - 'REDIS_PASSWORD=bitnami'
+      # - 'ALLOW_EMPTY_PASSWORD=yes'
       - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5'
     ports:
       - "6371:6379"
 
   redis-node-2:
-    image: docker.io/bitnami/redis-cluster:6.2
+    image: docker.io/bitnami/redis-cluster:6.2.10
+    container_name: redis-cluster-2
     volumes:
       - redis-cluster_data-2:/bitnami/redis/data
     environment:
-      - 'REDIS_PASSWORD=SET_YOUR_PASSWORD'
+      # - 'ALLOW_EMPTY_PASSWORD=yes'
+      - 'REDIS_PASSWORD=bitnami'
       - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5'
 
   redis-node-3:
-    image: docker.io/bitnami/redis-cluster:6.2
+    image: docker.io/bitnami/redis-cluster:6.2.10
+    container_name: redis-cluster-3
     volumes:
       - redis-cluster_data-3:/bitnami/redis/data
     environment:
-      - 'REDIS_PASSWORD=SET_YOUR_PASSWORD'
+      - 'REDIS_PASSWORD=bitnami'
+      # - 'ALLOW_EMPTY_PASSWORD=yes'
       - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5'
 
   redis-node-4:
-    image: docker.io/bitnami/redis-cluster:6.2
+    image: docker.io/bitnami/redis-cluster:6.2.10
+    container_name: redis-cluster-4
     volumes:
       - redis-cluster_data-4:/bitnami/redis/data
     environment:
-      - 'REDIS_PASSWORD=SET_YOUR_PASSWORD'
+      - 'REDIS_PASSWORD=bitnami'
+      # - 'ALLOW_EMPTY_PASSWORD=yes'
       - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5'
 
   redis-node-5:
-    image: docker.io/bitnami/redis-cluster:6.2
+    image: docker.io/bitnami/redis-cluster:6.2.10
+    container_name: redis-cluster-5
     volumes:
       - redis-cluster_data-5:/bitnami/redis/data
     depends_on:
@@ -53,7 +64,8 @@ services:
       - redis-node-3
       - redis-node-4
     environment:
-      - 'REDIS_PASSWORD=SET_YOUR_PASSWORD'
+      # - 'ALLOW_EMPTY_PASSWORD=yes'
+      - 'REDIS_PASSWORD=bitnami'
       - 'REDISCLI_AUTH=bitnami'
       - 'REDIS_CLUSTER_REPLICAS=1'
       - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5'
